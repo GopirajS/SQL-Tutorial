@@ -1,27 +1,4 @@
 
-
-## Filtering and Conditions
-
-* What is the WHERE clause?
-* What are comparison operators?
-* What is BETWEEN?
-* What is IN?
-* What is LIKE?
-* What is the difference between LIKE and REGEXP?
-* What is "IS NULL" vs "= NULL"?
-* What are logical operators (AND, OR, NOT)?
-
-## Aggregate Functions
-
-* What are aggregate functions?
-* What is COUNT()?
-* What is SUM()?
-* What is AVG()?
-* What is MIN() and MAX()?
-* What is GROUP BY?
-* What is HAVING?
-* Difference between WHERE and HAVING?
-
 ## Joins
 
 * What is a JOIN?

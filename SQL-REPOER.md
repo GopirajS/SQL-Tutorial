@@ -54,6 +54,33 @@
 * [What is alias (AS)?](#What_is_Alias)
 
 
+
+## Filtering and Conditions
+
+* What is the WHERE clause?
+* What are comparison operators?
+* What is BETWEEN?
+* What is IN?
+* What is LIKE?
+* What is the difference between LIKE and REGEXP?
+* What is "IS NULL" vs "= NULL"?
+* What are logical operators (AND, OR, NOT)?
+
+## Aggregate Functions
+
+* [What are aggregate functions?](#What_are_Aggregate_Functions)
+
+* What is COUNT()?
+* What is SUM()?
+* What is AVG()?
+* What is MIN() and MAX()?
+
+* [What is GROUP BY?](#What_is_GROUP_BY)
+
+* [What is HAVING?](#What_is_HAVING)
+
+* [Difference between WHERE and HAVING?](#WHERE_vs_HAVING)
+
 <span style="color:green;">================================================================ </span>
 
 <h1 style="text-align:center;" >SQL Basics</h1>
@@ -1710,3 +1737,250 @@ SELECT name full_name FROM users;
 
 🏷️ **Alias = Nickname**
 
+
+<span style="color:green;">================================================================ </span>
+
+<h1 style="text-align:center;" > Aggregate Functions </h1>
+
+<img  alt="Image" src="https://github.com/user-attachments/assets/9704bed3-427b-4708-b4ac-e2d543dfc5f2" />
+
+<h2 id="What_are_Aggregate_Functions" style="color:green">📊 What are Aggregate Functions? </h2>
+
+* Aggregate functions **perform calculations on multiple rows**
+* They return **one single value**
+* Commonly used with **GROUP BY**
+
+---
+
+### 🔢 **COUNT()**
+
+```sql
+SELECT COUNT(*) FROM users;
+```
+
+👉 Counts total rows
+
+---
+
+### ➕ **SUM()**
+
+```sql
+SELECT SUM(salary) FROM employees;
+```
+
+👉 Total salary
+
+---
+
+### 📈 **AVG()**
+
+```sql
+SELECT AVG(age) FROM users;
+```
+
+👉 Average age
+
+---
+
+### 🔼 **MAX()**
+
+```sql
+SELECT MAX(marks) FROM students;
+```
+
+👉 Highest marks
+
+---
+
+### 🔽 **MIN()**
+
+```sql
+SELECT MIN(marks) FROM students;
+```
+
+👉 Lowest marks
+
+---
+
+### 🧠 Real-Life Examples
+
+* 💰 Total sales
+* 🧑 Average age
+* 🏆 Highest score
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **Aggregate Functions:**
+  *Aggregate functions perform calculations on a set of rows and return a single result.*
+
+---
+
+## 🧠 Memory Trick
+
+📊 **Aggregate = Group calculation**
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_GROUP_BY" style="color:green"> 🧩 What is GROUP BY? </h2>
+
+
+* **GROUP BY** groups rows that have **same values**
+* Used with **aggregate functions**
+* Returns **one result per group**
+
+---
+
+### 📌 Simple Example
+
+```sql
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department;
+```
+
+👉 Counts employees **per department**
+
+---
+
+### 🧠 Real-Life Examples
+
+* 🏢 Employees per department
+* 🌍 Users per country
+* 🛒 Sales per product
+
+---
+
+### ⚠️ Important Rule (Interview 🔥)
+
+> Any column in `SELECT` that is **not an aggregate** must be in `GROUP BY`
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **GROUP BY:**
+  *GROUP BY groups rows with the same values and is used with aggregate functions to summarize data.*
+
+---
+
+### 🧠 Memory Trick
+
+🧩 **GROUP BY = Collect similar data**
+
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_HAVING" style="color:green"> 🔍 What is HAVING? </h2>
+
+* **HAVING** filters **grouped data**
+* Used **after GROUP BY**
+* Works with **aggregate functions**
+* `WHERE` **cannot** be used with aggregates
+
+---
+
+### 📌 Simple Example
+
+```sql
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 5;
+```
+
+👉 Shows departments with **more than 5 employees**
+
+---
+
+### 🧠 Real-Life Example
+
+* 🏢 Departments with high staff
+* 🛒 Products with total sales > 100
+
+---
+
+### ⚠️ Key Difference (Interview 🔥)
+
+* `WHERE` → filters **rows**
+* `HAVING` → filters **groups**
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **HAVING:**
+  *HAVING is used to filter grouped results based on aggregate conditions.*
+
+---
+
+### 🧠 Memory Trick
+
+🔍 **HAVING = Filter after GROUPING**
+
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="WHERE_vs_HAVING" style="color:green"> 🔍 WHERE vs HAVING </h2>
+
+
+### 📌 **WHERE**
+
+* Filters **rows**
+* Used **before GROUP BY**
+* ❌ Cannot use aggregate functions
+
+```sql
+SELECT * FROM employees
+WHERE salary > 30000;
+```
+
+👉 Filters individual employees
+
+---
+
+### 📌 **HAVING**
+
+* Filters **groups**
+* Used **after GROUP BY**
+* ✅ Works with aggregate functions
+
+```sql
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 5;
+```
+
+👉 Filters departments
+
+---
+
+### ⚖️ Difference Table
+
+| Feature             | WHERE                  | HAVING         |
+| ------------------- | ---------------------- | -------------- |
+| Filters             | Rows                   | Groups         |
+| Used With           | SELECT, UPDATE, DELETE | GROUP BY       |
+| Aggregate Functions | ❌                      | ✅              |
+| Execution Order     | Before grouping        | After grouping |
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **WHERE vs HAVING:**
+  *WHERE filters individual rows, while HAVING filters grouped results after aggregation.*
+
+---
+
+### 🧠 Memory Trick
+
+* 🔍 **WHERE** → Before grouping
+* 🔍 **HAVING** → After grouping
+
+<span style="color:green;">================================================================ </span>
