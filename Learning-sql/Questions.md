@@ -1,26 +1,5 @@
 
 
-## Data Manipulation Language (DML)
-
-* What is DML?
-* How do you insert data into a table?
-* How do you insert multiple rows?
-* How do you update data?
-* How do you delete data?
-* What is the difference between INSERT and INSERT IGNORE?
-* What is UPSERT?
-
-## Data Query Language (SELECT)
-
-* What is SELECT statement?
-* How do you select specific columns?
-* How do you use WHERE clause?
-* What is ORDER BY?
-* What is LIMIT and OFFSET?
-* What is DISTINCT?
-* What is alias (AS)?
-* What is the execution order of a SELECT query?
-
 ## Filtering and Conditions
 
 * What is the WHERE clause?
@@ -29,7 +8,7 @@
 * What is IN?
 * What is LIKE?
 * What is the difference between LIKE and REGEXP?
-* What is IS NULL vs = NULL?
+* What is "IS NULL" vs "= NULL"?
 * What are logical operators (AND, OR, NOT)?
 
 ## Aggregate Functions

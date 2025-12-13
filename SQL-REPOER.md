@@ -37,6 +37,23 @@
 * [What is DEFAULT constraint?](#What_is_DEFAULT_Constraint)
 
 
+## Data Manipulation Language (DML)
+
+* [What is DML?](#What_is_DML)
+
+* [What is the difference between INSERT and INSERT IGNORE?](#INSERT_and_INSERT_IGNORE)
+
+* [What is UPSERT?](#What_is_UPSERT)
+
+* [What is LIMIT and OFFSET?](#What_is_LIMIT)
+
+* [What is ORDER BY?](#What_is_ORDER_BY)
+
+* [What is DISTINCT?](#What_is_DISTINCT)
+
+* [What is alias (AS)?](#What_is_Alias)
+
+
 <span style="color:green;">================================================================ </span>
 
 <h1 style="text-align:center;" >SQL Basics</h1>
@@ -1205,3 +1222,491 @@ status VARCHAR(20) DEFAULT 'active'
 ### 🧠 Memory Trick
 
 ⚙️ **DEFAULT = Auto value if missing**
+
+
+<span style="color:green;">================================================================ </span>
+
+<h1 style="text-align:center;" >Data Manipulation Language (DML)</h1>
+
+<img  alt="Image" src="https://github.com/user-attachments/assets/f17a7aa4-937b-40cc-8e88-80e9d36fecf9" />
+
+<h2 id="What_is_DML" style="color:green">  ✍️ What is DML? </h2>
+
+* **DML** stands for **Data Manipulation Language**
+* Used to **work with data inside tables**
+* It **adds, changes, deletes, and reads data**
+
+---
+
+### 🧰 Common DML Commands
+
+* ➕ `INSERT` → Add new data
+* ✏️ `UPDATE` → Modify existing data
+* 🗑️ `DELETE` → Remove data
+* 🔍 `SELECT` → Retrieve data
+
+---
+
+### 🧠 Simple Example
+
+
+
+### 1️⃣ **INSERT** – Add new data
+
+### 📌 Query
+
+```sql
+INSERT INTO users (name, email, age)
+VALUES ('Rahul', 'rahul@gmail.com', 25);
+```
+
+### 🧠 Real Example
+
+👉 A **new user registers** on a website
+
+---
+
+### 2️⃣ **SELECT** – Get data
+
+
+```sql
+SELECT name, email FROM users;
+
+SELECT * FROM users WHERE age > 18;
+```
+
+👉 Show **name and email only**
+
+---
+
+### 3️⃣ **UPDATE** – Change existing data
+
+
+```sql
+UPDATE users
+SET age = 26
+WHERE email = 'rahul@gmail.com';
+```
+
+### 4️⃣ **DELETE** – Remove data
+
+```sql
+DELETE FROM users
+WHERE id = 5;
+```
+
+## 🔁 DML with Real-Life Flow
+
+```sql
+-- Register user
+INSERT INTO users (name, email) VALUES ('Amit', 'amit@gmail.com');
+
+-- View profile
+SELECT * FROM users WHERE email = 'amit@gmail.com';
+
+-- Update profile
+UPDATE users SET name = 'Amit Kumar' WHERE email = 'amit@gmail.com';
+
+-- Delete account
+DELETE FROM users WHERE email = 'amit@gmail.com';
+```
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **DML:**
+  *DML is a set of SQL commands used to insert, update, delete, and retrieve data from tables.*
+
+---
+
+### 🧠 Memory Trick
+
+✍️ **DML = Data Movement & Editing**
+
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="INSERT_and_INSERT_IGNORE" style="color:green">  What is the difference between INSERT and INSERT IGNORE? </h2>
+
+## ➕ **INSERT**
+
+* Inserts **new data**
+* ❌ Fails if there is a **duplicate key or constraint error**
+* ⚠️ Query **stops with error**
+
+### 📌 Example
+
+```sql
+INSERT INTO users (email)
+VALUES ('john@gmail.com');
+```
+
+👉 Error if `email` already exists (UNIQUE)
+
+---
+
+## 🚫 **INSERT IGNORE** *(MySQL specific)*
+
+* Inserts data **only if no error occurs**
+* ✅ **Ignores duplicate & constraint errors**
+* ⚠️ Problematic rows are **skipped**
+* ❌ No error shown
+
+### 📌 Example
+
+```sql
+INSERT IGNORE INTO users (email)
+VALUES ('john@gmail.com');
+```
+
+👉 If email exists → **row is ignored**
+
+---
+
+## ⚖️ Difference Table
+
+| Feature         | INSERT  | INSERT IGNORE   |
+| --------------- | ------- | --------------- |
+| Duplicate Entry | ❌ Error | ✅ Ignored       |
+| Stops Execution | ✅       | ❌               |
+| Error Message   | ✅       | ❌               |
+| Data Inserted   | ❌       | ❌ (row skipped) |
+
+---
+
+## 🧠 Real-Life Example
+
+* 🛑 **INSERT** → Stop signup if email exists
+* 🚦 **INSERT IGNORE** → Skip duplicate silently
+
+---
+
+## 🎯 One-Line Interview Answer
+
+* **INSERT vs INSERT IGNORE:**
+  *INSERT throws an error on duplicates, while INSERT IGNORE skips duplicate records without error.*
+
+---
+
+### 🧠 Memory Trick
+
+* ❌ **INSERT** → Strict
+* 🚫 **IGNORE** → Skip errors
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_UPSERT" style="color:green">  🔁 What is UPSERT? </h2>
+
+<img alt="Image" src="https://github.com/user-attachments/assets/7fdf7bb7-d6a5-45ef-9091-1444cd508efe" />
+
+* **UPSERT** = **UPDATE + INSERT**
+* It **inserts a row if it does not exist**
+* If the row **already exists**, it **updates it**
+
+---
+
+### 🧠 Simple Meaning
+
+👉 **“Insert if new, update if exists”**
+
+---
+
+### 📌 Example (MySQL)
+
+```sql
+INSERT INTO users (email, name)
+VALUES ('john@gmail.com', 'John')
+ON DUPLICATE KEY UPDATE
+name = 'John';
+```
+
+👉 If email exists → **UPDATE**
+👉 If not → **INSERT**
+
+---
+
+### 📌 Example (PostgreSQL)
+
+```sql
+INSERT INTO users (email, name)
+VALUES ('john@gmail.com', 'John')
+ON CONFLICT (email)
+DO UPDATE SET name = EXCLUDED.name;
+```
+
+---
+
+### 🧠 Real-Life Example
+
+* 🛒 Add product → update quantity if already in cart
+* 👤 User login → create user if not exists
+
+---
+
+### ⚠️ Important Points
+
+* Requires **UNIQUE or PRIMARY KEY**
+* Syntax depends on database
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **UPSERT:**
+  *UPSERT inserts a record if it doesn’t exist, or updates it if it already exists.*
+
+---
+
+### 🧠 Memory Trick
+
+🔁 **UPSERT = UPDATE + INSERT**
+
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_LIMIT" style="color:green">  📏  What is LIMIT and ↪️ OFFSET? </h2>
+
+### 📏 **What is LIMIT**
+
+* **LIMIT** restricts the **number of rows returned**
+* Used for **pagination** and performance
+
+### 📌 Example
+
+```sql
+SELECT * FROM users
+LIMIT 5;
+```
+
+👉 Returns **only 5 rows**
+
+---
+
+### ↪️ **What is OFFSET?**
+
+* **OFFSET** skips a **number of rows**
+* Used with `LIMIT` for pagination
+
+### 📌 Example
+
+```sql
+SELECT * FROM users
+LIMIT 5 OFFSET 5;
+```
+
+👉 Skips first 5 rows, shows **next 5**
+
+---
+
+### 🧠 Real-Life Example (Pagination)
+
+* Page 1 → `LIMIT 10 OFFSET 0`
+* Page 2 → `LIMIT 10 OFFSET 10`
+* Page 3 → `LIMIT 10 OFFSET 20`
+
+---
+
+### ⚖️ Difference Table
+
+| Feature    | LIMIT     | OFFSET    |
+| ---------- | --------- | --------- |
+| Purpose    | Row count | Skip rows |
+| Used Alone | ✅         | ❌         |
+| Pagination | ✅         | ✅         |
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **LIMIT & OFFSET:**
+  *LIMIT controls how many rows are returned, and OFFSET specifies how many rows to skip.*
+
+---
+
+### 🧠 Memory Trick
+
+📏 **LIMIT = How many**
+↪️ **OFFSET = From where**
+
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_ORDER_BY" style="color:green">  🔃 What is ORDER BY? </h2>
+
+* **ORDER BY** is used to **sort data**
+* Sorts rows in **ascending or descending order**
+* Default order is **ASC (ascending)**
+
+---
+
+### 📌 Simple Example
+
+```sql
+SELECT * FROM users
+ORDER BY name;
+```
+
+👉 Sorts users **A → Z**
+
+---
+
+### 🔽 Descending Order
+
+```sql
+SELECT * FROM users
+ORDER BY age DESC;
+```
+
+👉 Sorts ages **high → low**
+
+---
+
+### 🔢 Multiple Columns
+
+```sql
+SELECT * FROM users
+ORDER BY age DESC, name ASC;
+```
+
+👉 First by age, then by name
+
+---
+
+### 🧠 Real-Life Example
+
+* 📄 Sort users by **latest signup**
+* 🏆 Rank students by **marks**
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **ORDER BY:**
+  *ORDER BY is used to sort query results in ascending or descending order.*
+
+---
+
+### 🧠 Memory Trick
+
+🔃 **ORDER BY = Arrange data**
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_DISTINCT" style="color:green">  🧹 What is DISTINCT </h2>
+
+* **DISTINCT** removes **duplicate values**
+* Returns **unique records only**
+* Used with `SELECT`
+
+---
+
+## 📌 Simple Example
+
+```sql
+SELECT DISTINCT country FROM users;
+```
+
+👉 Shows each country **only once**
+
+---
+
+## 🧠 Real-Life Example
+
+* 🌍 List of **unique cities**
+* 📧 Unique email domains
+* 🏷️ Unique categories
+
+---
+
+## ⚠️ Important Points
+
+* Works on **selected columns**
+* Multiple columns → unique **combination**
+
+```sql
+SELECT DISTINCT city, country FROM users;
+```
+
+---
+
+## 🎯 One-Line Interview Answer
+
+* **DISTINCT:**
+  *DISTINCT is used to return unique values by removing duplicates from query results.*
+
+---
+
+## 🧠 Memory Trick
+
+🧹 **DISTINCT = Remove duplicates**
+
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_Alias" style="color:green">  🏷️ What is Alias (AS)? </h2>
+
+* **Alias** is a **temporary name**
+* Used for **columns or tables**
+* Makes queries **shorter and more readable**
+* Exists **only during the query**
+
+---
+
+## 📌 Column Alias Example
+
+```sql
+SELECT name AS full_name
+FROM users;
+```
+
+👉 Shows column `name` as **full_name**
+
+---
+
+## 📌 Table Alias Example
+
+```sql
+SELECT u.name
+FROM users AS u;
+```
+
+👉 `u` is a short name for `users`
+
+---
+
+## 🧠 Real-Life Example
+
+* 🧾 Rename `SUM(amount)` as `total_sales`
+* 🔍 Use short table names in joins
+
+---
+
+## ⚠️ Important Points
+
+* `AS` is **optional**
+
+```sql
+SELECT name full_name FROM users;
+```
+
+* Alias does **not change actual column/table name**
+
+---
+
+## 🎯 One-Line Interview Answer
+
+* **Alias (AS):**
+  *Alias gives a temporary name to a table or column to make SQL queries more readable.*
+
+---
+
+## 🧠 Memory Trick
+
+🏷️ **Alias = Nickname**
+
