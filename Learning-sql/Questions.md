@@ -2,7 +2,8 @@
 
 ## Data Definition Language (DDL)
 
-* What is DDL?
+* [What is DDL?](#What_is_DDL)
+
 * How do you create a database?
 * How do you create a table?
 * How do you alter a table?
