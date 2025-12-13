@@ -1,21 +1,5 @@
 
 
-## Data Definition Language (DDL)
-
-* [What is DDL?](#What_is_DDL)
-
-* How do you create a database?
-* How do you create a table?
-* How do you alter a table?
-* How do you rename a table or column?
-* How do you drop a table?
-* What is the difference between DROP and TRUNCATE?
-* What are constraints?
-* What is NOT NULL constraint?
-* What is UNIQUE constraint?
-* What is CHECK constraint?
-* What is DEFAULT constraint?
-
 ## Data Manipulation Language (DML)
 
 * What is DML?
