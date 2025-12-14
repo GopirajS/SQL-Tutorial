@@ -1,16 +1,4 @@
 
-## Joins
-
-* What is a JOIN?
-* What is INNER JOIN?
-* What is LEFT JOIN?
-* What is RIGHT JOIN?
-* What is FULL OUTER JOIN?
-* What is CROSS JOIN?
-* What is SELF JOIN?
-* Difference between JOIN and SUBQUERY?
-* How do joins impact performance?
-
 ## Subqueries
 
 * What is a subquery?
