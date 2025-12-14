@@ -81,7 +81,6 @@
 * [Difference between WHERE and HAVING?](#WHERE_vs_HAVING)
 
 
-
 ## Joins
 
 * [What is a JOIN?](#What_is_a_JOIN)
