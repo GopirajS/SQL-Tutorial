@@ -1,11 +1,4 @@
 
-## Transactions
-
-* What is a transaction?
-* What is COMMIT?
-* What is ROLLBACK?
-* What is SAVEPOINT?
-* What are ACID properties?
 
 ## Stored Procedures & Functions
 
@@ -35,7 +28,7 @@
 ## Performance & Optimization
 
 * How do you optimize SQL queries?
-* What is query execution plan?
+<!-- * What is query execution plan? -->
 <!-- * What is EXPLAIN? -->
 <!-- * How to find slow queries? -->
 * Index vs Query optimization?

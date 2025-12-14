@@ -163,6 +163,20 @@
 * Can views be updated?
 
 
+
+## Transactions
+
+* [What is a transaction?](#What_is_a_Transaction)
+
+* [What is COMMIT?](#What_is_COMMIT)
+
+* [What is ROLLBACK?](#What_is_ROLLBACK)
+
+* [What is SAVEPOINT?](#What_is_SAVEPOINT)
+
+* [What are ACID properties?](#What_are_ACID_Properties)
+
+
 <span style="color:green;">================================================================ </span>
 
 <h1 style="text-align:center;" >SQL Basics</h1>
@@ -3190,4 +3204,299 @@ CREATE FULLTEXT INDEX idx_desc ON products(description);
 > *Indexes can be primary, unique, normal, composite, full-text, clustered, and non-clustered.*
 
 
+
 <span style="color:green;">================================================================ </span>
+
+<h1 style="text-align:center;" >Transactions</h1>
+
+<span style="color:green;">================================================================ </span>
+
+
+<img  alt="Image" src="https://github.com/user-attachments/assets/20c0da0f-f603-425a-812b-10189aa791d0" />
+
+<h2 id="What_is_a_Transaction" style="color:green"> 🔄 What is a Transaction? </h2>
+
+* A **transaction** is a **group of SQL operations** executed as **one unit**
+* Either **all succeed** or **all fail**
+---
+
+### 🧠 Simple Meaning
+
+👉 **All or nothing**
+
+---
+
+### 📋 Simple Example
+
+```sql
+START TRANSACTION;
+
+INSERT INTO orders (user_id, amount) VALUES (1, 500);
+UPDATE users SET balance = balance - 500 WHERE id = 1;
+
+COMMIT;
+```
+
+👉 Both queries succeed together
+
+---
+
+### ❌ If Error Occurs
+
+```sql
+ROLLBACK;
+```
+
+👉 Changes are undone
+
+---
+
+### 🧠 Real-Life Example
+
+🏦 Bank transfer
+➕ Debit one account
+➕ Credit another
+👉 Both must succeed
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **Transaction:**
+  *A transaction is a set of SQL operations that execute as a single unit, ensuring data consistency.*
+
+---
+
+### 🧠 Memory Trick
+
+🔄 **Transaction = All or nothing**
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_COMMIT" style="color:green"> ✅ What is COMMIT? </h2>
+
+
+* **COMMIT** permanently **saves all changes** made in a transaction
+* After COMMIT, changes **cannot be undone**
+
+---
+
+### 🧠 Simple Meaning
+
+👉 **Save changes forever**
+
+---
+
+### 📋 Simple Example
+
+```sql
+START TRANSACTION;
+
+INSERT INTO users (name) VALUES ('Rahul');
+
+COMMIT;
+```
+
+👉 Data is saved permanently
+
+---
+
+### ❌ Without COMMIT
+
+```sql
+ROLLBACK;
+```
+
+👉 Changes are canceled
+
+---
+
+### 🧠 Real-Life Example
+
+💾 Clicking **Save** in a document
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **COMMIT:**
+  *COMMIT saves all transaction changes permanently in the database.*
+
+---
+
+### 🧠 Memory Trick
+
+💾 **COMMIT = Confirm & Save**
+
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_ROLLBACK" style="color:green"> ❌ What is ROLLBACK? </h2>
+
+* **ROLLBACK** cancels all changes made in a transaction
+* Database returns to the **previous state**
+* Used when an **error occurs**
+
+---
+
+### 🧠 Simple Meaning
+
+👉 **Undo changes**
+
+---
+
+### 📋 Simple Example
+
+```sql
+START TRANSACTION;
+
+UPDATE users SET balance = balance - 500 WHERE id = 1;
+
+ROLLBACK;
+```
+
+👉 Balance change is undone
+
+---
+
+### 🧠 Real-Life Example
+
+↩️ **Undo (Ctrl + Z)**
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **ROLLBACK:**
+  *ROLLBACK undoes all changes made in a transaction.*
+
+---
+
+### 🧠 Memory Trick
+
+↩️ **ROLLBACK = Go back**
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_SAVEPOINT" style="color:green">📍📍📍 What is SAVEPOINT? </h2>
+
+<img alt="Image" src="https://github.com/user-attachments/assets/2e14ed5f-25a9-4063-928f-d4f471667376" />
+
+* **SAVEPOINT** creates a **checkpoint inside a transaction**
+* You can **ROLLBACK to a specific point**, not the whole transaction
+
+---
+
+### 🧠 Simple Meaning
+
+👉 **Transaction bookmark**
+
+---
+
+### 📋 Simple Example
+
+```sql
+START TRANSACTION;
+
+INSERT INTO users (name) VALUES ('Amit');
+SAVEPOINT sp1;
+
+INSERT INTO users (name) VALUES ('Neha');
+
+ROLLBACK TO sp1;
+COMMIT;
+```
+
+👉 Only **Amit** is saved, **Neha** is undone
+
+---
+
+### 🧠 Real-Life Example
+
+📝 Editing document → undo to a point
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **SAVEPOINT:**
+  *SAVEPOINT allows partial rollback within a transaction.*
+
+---
+
+### 🧠 Memory Trick
+
+📍 **SAVEPOINT = Mark a point**
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_are_ACID_Properties" style="color:green"> 🧪 What are ACID Properties? </h2>
+
+![Image](https://github.com/user-attachments/assets/7ebe97cb-cd6e-445f-ac94-5606d79a3e8a)
+
+ACID ensures that **database transactions are reliable and safe**
+
+---
+
+### 🅰️ **A – Atomicity**
+
+* Transaction is **all or nothing**
+* If one step fails, everything fails
+
+**Example:**
+Bank transfer fails → money not deducted
+
+🎯 *All operations succeed or none*
+
+---
+
+### 🅲 **C – Consistency**
+
+* Database moves from **one valid state to another**
+* Rules & constraints are maintained
+
+**Example:**
+Balance never becomes negative
+
+🎯 *Data remains valid*
+
+---
+
+### 🅸 **I – Isolation**
+
+* Multiple transactions **don’t affect each other**
+* Appears like transactions run one-by-one
+
+**Example:**
+Two users booking same seat
+
+🎯 *Transactions are isolated*
+
+---
+
+### 🅳 **D – Durability**
+
+* Once committed, data is **permanently saved**
+* Survives power failure or crash
+
+**Example:**
+Saved bank transfer remains after crash
+
+🎯 *Data stays forever after commit*
+
+---
+
+### 🧠 Easy Memory Trick 🔥
+
+👉 **ACID = Always Correct In Database**
+
+---
+
+### 🎯 One-Line Interview Answer
+
+> *ACID properties ensure transactions are atomic, consistent, isolated, and durable.*
+
