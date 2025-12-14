@@ -103,6 +103,26 @@
 
 * How do joins impact performance?
 
+## Subqueries
+
+* [What is a subquery?](#What_is_a_Subquery)
+
+* [Types of Subqueries in SQL?](#Types_of_Subqueries_in_SQL) 
+
+* Subquery vs JOIN – when to use which?
+* What is EXISTS?
+* What is NOT EXISTS?
+
+
+## Set Operations
+
+* [What is UNION?](#What_is_UNION)
+
+* [What is UNION ALL?](#What_is_UNION_ALL)
+
+* [What is INTERSECT?](#What_is_INTERSECT)
+
+* [What is EXCEPT / MINUS](#What_is_EXCEPT_MINUS)
 
 <span style="color:green;">================================================================ </span>
 
@@ -2454,6 +2474,504 @@ WHERE id IN (
 
 * 🔗 **JOIN** = Combine tables
 * 🔍 **SUBQUERY** = Query inside query
+
+
+<span style="color:green;">================================================================ </span>
+
+
+<h1 style="text-align:center;" >Subqueries</h1>
+
+<img  alt="Image" src="https://github.com/user-attachments/assets/0c8bcbcf-595f-4c83-b1c5-3757a08581b2" />
+
+<h2 id="What_is_a_Subquery" style="color:green">🔍 What is a Subquery? </h2>
+
+* A **subquery** is a **query inside another SQL query**
+* The **inner query runs first**
+* Its result is used by the **outer query**
+
+---
+
+## 🧠 Simple Meaning
+
+👉 **Query inside a query**
+
+---
+
+## 📌 Example
+
+### Get users who have orders
+
+```sql
+SELECT name
+FROM users
+WHERE id IN (
+  SELECT user_id FROM orders
+);
+```
+
+---
+
+## 🧠 Real-Life Example
+
+* 🎓 Students who passed an exam
+* 🛒 Customers who placed orders
+* 👨‍💼 Employees earning more than average salary
+
+---
+
+## 🎯 One-Line Interview Answer
+
+* **Subquery:**
+  *A subquery is a query inside another query whose result is used by the main query.*
+
+---
+
+## 🧠 Memory Trick
+
+🔍 **Subquery = Inside query**
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="Types_of_Subqueries_in_SQL" style="color:green"> 🔍 Types of Subqueries in SQL </h2>
+
+<img  alt="Image" src="https://github.com/user-attachments/assets/cc42e0c2-2c8d-4848-a636-e546b6e66509" />
+
+## 1️⃣ **Single-Row Subquery**
+
+* Returns **one row**
+* Uses `=`, `<`, `>`
+
+### 📌 Example
+
+```sql
+SELECT name
+FROM employees
+WHERE salary > (
+  SELECT AVG(salary) FROM employees
+);
+```
+
+### 🎯 Interview Answer
+
+👉 *Returns only one row*
+
+---
+
+## 2️⃣ **Multiple-Row Subquery**
+
+* Returns **multiple rows**
+* Uses `IN`, `ANY`, `ALL`
+
+### 📌 Example
+
+```sql
+SELECT name
+FROM employees
+WHERE department_id IN (
+  SELECT id FROM departments
+);
+```
+
+### 🎯 Interview Answer
+
+👉 *Returns more than one row*
+
+---
+
+## 3️⃣ **Multiple-Column Subquery**
+
+* Returns **multiple columns**
+* Used with row comparison
+
+### 📌 Example
+
+```sql
+SELECT *
+FROM orders
+WHERE (user_id, amount) IN (
+  SELECT user_id, MAX(amount)
+  FROM orders
+  GROUP BY user_id
+);
+```
+
+### 🎯 Interview Answer
+
+👉 *Returns multiple columns*
+
+---
+
+## 4️⃣ **Correlated Subquery**
+
+* Depends on **outer query**
+* Runs **once per row**
+
+### 📌 Example
+
+```sql
+SELECT name
+FROM employees e
+WHERE salary > (
+  SELECT AVG(salary)
+  FROM employees
+  WHERE department_id = e.department_id
+);
+```
+
+### 🎯 Interview Answer
+
+👉 *Uses outer query values*
+
+---
+
+## 5️⃣ **Scalar Subquery**
+
+* Returns **single value**
+* Can be used in `SELECT`
+
+### 📌 Example
+
+```sql
+SELECT name,
+       (SELECT COUNT(*) FROM orders) AS total_orders
+FROM users;
+```
+
+### 🎯 Interview Answer
+
+👉 *Returns one value*
+
+---
+
+## 6️⃣ **Nested Subquery**
+
+* Subquery inside **another subquery**
+
+### 📌 Example
+
+```sql
+SELECT name
+FROM users
+WHERE id IN (
+  SELECT user_id
+  FROM orders
+  WHERE product_id IN (
+    SELECT id FROM products
+  )
+);
+```
+
+### 🎯 Interview Answer
+
+👉 *Subquery inside another subquery*
+
+---
+
+## 🧠 Easy Memory Table
+
+| Type         | Memory Hint      |
+| ------------ | ---------------- |
+| Single-row   | One result       |
+| Multi-row    | Many results     |
+| Multi-column | Many columns     |
+| Correlated   | Depends on outer |
+| Scalar       | Single value     |
+| Nested       | Inside inside    |
+
+---
+
+## 🧠 One-Line Master Interview Answer
+
+> *Subqueries can be single-row, multi-row, multi-column, correlated, scalar, or nested.*
+
+<span style="color:green;">================================================================ </span>
+
+<h1 style="text-align:center;" >Set Operations</h1>
+
+<span style="color:green;">================================================================ </span>
+
+
+<img  alt="Image" src="https://github.com/user-attachments/assets/b3449810-8246-4b06-970d-88b6bebf8b53" />
+
+<h2 id="What_is_UNION" style="color:green"> 🔗 What is UNION? </h2>
+
+* **UNION** is used to **combine results of two or more SELECT queries**
+* Removes **duplicate rows** by default
+* All SELECT queries must have:
+
+  * Same number of columns
+  * Same data types
+  * Same column order
+
+---
+
+### 🧠 Simple Meaning
+
+👉 **Add query results together (no duplicates)**
+
+---
+
+### 📋 Simple Example
+
+| **students_2024** |   | **students_2025** |
+| ----------------- | - | ----------------- |
+| name              |   | name              |
+| Rahul             |   | Amit              |
+| Amit              |   | Neha              |
+
+---
+
+### UNION Query
+
+```sql
+SELECT name FROM students_2024
+UNION
+SELECT name FROM students_2025;
+```
+
+---
+
+### Result
+
+| name  |
+| ----- |
+| Rahul |
+| Amit  |
+| Neha  |
+
+---
+
+### 🧠 Real-Life Example
+
+* 📚 Students from multiple years
+* 🏢 Employees from different branches
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **UNION:**
+  *UNION combines results of multiple SELECT queries and removes duplicate records.*
+
+---
+
+### 🧠 Memory Trick
+
+➕ **UNION = Merge + remove duplicates**
+
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_UNION_ALL" style="color:green"> 🔗 What is UNION ALL? </h2>
+
+* **UNION ALL** combines results of multiple `SELECT` queries
+* **Does NOT remove duplicates**
+* Faster than `UNION`
+
+---
+
+### 🧠 Simple Meaning
+
+👉 **Add everything (duplicates included)**
+
+---
+
+### 📋 Simple Example
+
+### Table: `students_2024` and `students_2025`
+
+| name  | | name |
+| ----- |-| ---- |
+| Rahul | | Amit |
+| Amit  | | Neha |
+
+
+### UNION ALL Query
+
+```sql
+SELECT name FROM students_2024
+UNION ALL
+SELECT name FROM students_2025;
+```
+---
+
+### Result
+
+| name  |
+| ----- |
+| Rahul |
+| Amit  |
+| Amit  |
+| Neha  |
+
+---
+
+### ⚖️ UNION vs UNION ALL
+
+| Feature           | UNION  | UNION ALL |
+| ----------------- | ------ | --------- |
+| Remove duplicates | ✅ Yes  | ❌ No      |
+| Performance       | Slower | Faster    |
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **UNION ALL:**
+  *UNION ALL combines results of multiple SELECT queries without removing duplicates.*
+
+---
+
+### 🧠 Memory Trick
+
+➕➕ **ALL = Everything stays**
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_INTERSECT" style="color:green"> What is INTERSECT? </h2>
+
+
+* **INTERSECT** returns **only common rows** between two `SELECT` queries
+* Removes duplicates automatically
+* Both queries must have:
+
+  * Same number of columns
+  * Same data types
+  * Same column order
+
+---
+
+### 🧠 Simple Meaning
+
+👉 **Common data only**
+
+---
+
+## 📋 Simple Example
+
+### Table: `students_2024` and `students_2025`
+
+| name (students_2024) | | name (students_2025) |
+| ----- |-| ----- |
+| Rahul | | Amit  |
+| Amit  | | Neha  |
+| Neha  | | Priya |
+
+---
+
+### INTERSECT Query
+
+```sql
+SELECT name FROM students_2024
+INTERSECT
+SELECT name FROM students_2025;
+```
+
+### Result
+
+| name |
+| ---- |
+| Amit |
+| Neha |
+
+---
+
+### 🧠 Real-Life Example
+
+* 🎓 Students enrolled in both years
+* 🛒 Products sold in two stores
+
+---
+
+### 🎯 One-Line Interview Answer
+
+* **INTERSECT:**
+  *INTERSECT returns only the common records between two SELECT queries.*
+
+---
+
+### 🧠 Memory Trick
+
+🔗 **INTERSECT = Intersection (common part)**
+
+⚠️ **Note:**
+
+* Not supported in **MySQL** (use `INNER JOIN` instead)
+
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_EXCEPT_MINUS" style="color:green"> 🔗 What is EXCEPT / MINUS? </h2>
+
+* **EXCEPT** (or **MINUS** in Oracle) returns rows that are:
+
+  * Present in the **first query**
+  * BUT **not present** in the second query
+* Removes duplicates automatically
+
+---
+
+## 🧠 Simple Meaning
+
+👉 **First − Second**
+
+---
+
+### Table: `students_2024` and  `students_2025`
+
+| name (students_2024) | | name (students_2025) |
+| ----- |-| ----- |
+| Rahul | | Amit  |
+| Amit  | | Neha  |
+| Neha  | | Priya |
+
+
+### EXCEPT Query
+
+```sql
+SELECT name FROM students_2024
+EXCEPT
+SELECT name FROM students_2025;
+```
+---
+
+### Result
+
+| name  |
+| ----- |
+| Rahul |
+
+---
+
+## 🧠 Oracle Version (MINUS)
+
+```sql
+SELECT name FROM students_2024
+MINUS
+SELECT name FROM students_2025;
+```
+---
+
+## ⚠️ Important Notes
+
+* ❌ Not supported in **MySQL**
+* ✔ Supported in **PostgreSQL, SQL Server, Oracle**
+
+---
+
+## 🎯 One-Line Interview Answer
+
+* **EXCEPT / MINUS:**
+  *Returns rows from the first query that are not present in the second query.*
+
+---
+
+## 🧠 Memory Trick
+
+➖ **EXCEPT = Remove second from first**
 
 
 <span style="color:green;">================================================================ </span>
