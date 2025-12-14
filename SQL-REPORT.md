@@ -7,7 +7,6 @@
 * [What are the differences between SQL, MySQL, PostgreSQL, and SQLite?](#D_between_SQL_MySQL_PostgreSQL_and_SQLite)
 
 * What is a database?
-
 * What is a table, row, and column?
 
 * [What is a primary key ,foreign key and Unique Key?](#primary_foreign_Unique_Key)
@@ -123,6 +122,47 @@
 * [What is INTERSECT?](#What_is_INTERSECT)
 
 * [What is EXCEPT / MINUS](#What_is_EXCEPT_MINUS)
+
+
+
+## String Functions
+
+* What is CONCAT()?
+* What is LENGTH()?
+* What is SUBSTRING()?
+* What is TRIM()?
+* What is REPLACE()?
+* What is LOWER() and UPPER()?
+
+## Date & Time Functions
+
+* What are date data types?
+* What is NOW()?
+* What is CURDATE()?
+* How to calculate date differences?
+* How to extract year/month/day from a date?
+* How to filter records by date range?
+
+
+## Indexes
+
+* [What is an index?](#What_is_an_Index)
+
+* [Types of indexes?](#Types_of_Indexes_in_SQL)
+
+* Why are indexes used?
+* What is a composite index?
+* When should you avoid indexes?
+* What is index selectivity?
+
+## Views
+
+* What is a view?
+* View vs Table?
+* Why use views?
+* How to create a view?
+* Can views be updated?
+
 
 <span style="color:green;">================================================================ </span>
 
@@ -2972,6 +3012,183 @@ SELECT name FROM students_2025;
 ## 🧠 Memory Trick
 
 ➖ **EXCEPT = Remove second from first**
+
+
+<span style="color:green;">================================================================ </span>
+
+<h1 style="text-align:center;" >Indexes</h1>
+
+<img  alt="Image" src="https://github.com/user-attachments/assets/f3e71566-2133-4c0b-bf0b-87def719e4ec" />
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="What_is_an_Index" style="color:green"> 📌 What is an Index? </h2>
+
+* An **index** is a database object that **speeds up data searching**
+* Works like a **book index**
+* Makes `SELECT` queries faster
+
+---
+
+### 🧠 Simple Meaning
+
+👉 **Index = Fast search**
+
+---
+
+### 📋 Simple Example
+
+### Without Index
+
+```sql
+SELECT * FROM users WHERE email = 'test@gmail.com';
+```
+
+👉 Database scans **all rows**
+
+---
+
+### Create Index
+
+```sql
+CREATE INDEX idx_email ON users(email);
+```
+
+---
+
+### With Index
+
+👉 Database finds data **quickly**
+
+---
+
+### 🧠 Real-Life Example
+
+📘 Book index → jump to page
+🗂️ Database index → jump to row
+
+---
+
+### ⚠️ Important Notes
+
+* Index **improves SELECT**
+* Index **slows INSERT / UPDATE / DELETE**
+* Uses **extra storage**
+---
+
+### 🎯 One-Line Interview Answer
+
+* **Index:**
+  *An index improves query performance by allowing faster data retrieval.*
+---
+
+### 🧠 Memory Trick
+
+⚡ **Index = Speed**
+
+<span style="color:green;">================================================================ </span>
+
+<h2 id="Types_of_Indexes_in_SQL" style="color:green"> Types of Indexes in SQL </h2>
+
+
+
+### 1️⃣ **PRIMARY INDEX**
+
+* Created automatically for **PRIMARY KEY**
+* Values are **unique & not NULL**
+
+```sql
+PRIMARY KEY (id)
+```
+
+🎯 *Index for primary key*
+
+---
+
+### 2️⃣ **UNIQUE INDEX**
+
+* Ensures **no duplicate values**
+
+```sql
+CREATE UNIQUE INDEX idx_email ON users(email);
+```
+
+🎯 *Prevents duplicates*
+
+---
+
+### 3️⃣ **NORMAL (NON-UNIQUE) INDEX**
+
+* Allows duplicate values
+* Improves search speed
+
+```sql
+CREATE INDEX idx_name ON users(name);
+```
+
+🎯 *Speeds up queries*
+
+---
+
+### 4️⃣ **COMPOSITE INDEX**
+
+* Index on **multiple columns**
+
+```sql
+CREATE INDEX idx_name_email ON users(name, email);
+```
+
+🎯 *Index on more than one column*
+
+---
+
+### 5️⃣ **FULL-TEXT INDEX**
+
+* Used for **text searching**
+
+```sql
+CREATE FULLTEXT INDEX idx_desc ON products(description);
+```
+
+🎯 *Used for keyword search*
+
+---
+
+### 6️⃣ **CLUSTERED INDEX**
+
+* Data is **physically stored** in index order
+* Only **one per table**
+
+🎯 *Controls physical data order*
+
+---
+
+### 7️⃣ **NON-CLUSTERED INDEX**
+
+* Index stored **separately** from data
+* Multiple allowed
+
+🎯 *Index separate from table*
+
+---
+
+### 🧠 Easy Memory Table
+
+| Index Type    | Memory Hint      |
+| ------------- | ---------------- |
+| PRIMARY       | Main ID          |
+| UNIQUE        | No duplicates    |
+| NORMAL        | Speed only       |
+| COMPOSITE     | Multiple columns |
+| FULL-TEXT     | Text search      |
+| CLUSTERED     | Physical order   |
+| NON-CLUSTERED | Separate index   |
+
+---
+
+### 🧠 One-Line Master Interview Answer
+
+> *Indexes can be primary, unique, normal, composite, full-text, clustered, and non-clustered.*
 
 
 <span style="color:green;">================================================================ </span>

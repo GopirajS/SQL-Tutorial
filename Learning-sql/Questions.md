@@ -1,42 +1,4 @@
 
-
-## String Functions
-
-<!-- * What is CONCAT()? -->
-<!-- * What is LENGTH()? -->
-<!-- * What is SUBSTRING()? -->
-<!-- * What is TRIM()? -->
-<!-- * What is REPLACE()? -->
-<!-- * What is LOWER() and UPPER()? -->
-
-## Date & Time Functions
-
-<!-- * What are date data types? -->
-<!-- * What is NOW()? -->
-<!-- * What is CURDATE()? -->
-<!-- * How to calculate date differences? -->
-<!-- * How to extract year/month/day from a date? -->
-<!-- * How to filter records by date range? -->
-
-## Indexes
-
-* What is an index?
-* Why are indexes used?
-* Types of indexes?
-<!-- * What is a composite index? -->
-<!-- * When should you avoid indexes? -->
-<!-- * What is index selectivity? -->
-
-## Views
-
-<!-- * What is a view? -->
-<!-- * View vs Table? -->
-<!-- * Why use views? -->
-<!-- * How to create a view? -->
-<!-- * Can views be updated? -->
-
-
-
 ## Transactions
 
 * What is a transaction?
