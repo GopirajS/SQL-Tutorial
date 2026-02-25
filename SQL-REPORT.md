@@ -1,3 +1,24 @@
+<a href="#top" id="backToTop" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+">⬆ Top</a>
+
+<script>
+document.querySelector('#backToTop').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#top').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
+</script>
+
 <h1 style="text-align:center;" >Sql Learning – Complete Question Bank</h1>
 
 ## Basics
@@ -177,13 +198,13 @@
 * [What are ACID properties?](#What_are_ACID_Properties)
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 <h1 style="text-align:center;" >SQL Basics</h1>
 
 ![Image](https://github.com/user-attachments/assets/6c1a0e04-7bc4-4fd1-8917-a3195089cd3d)
 
-<h2 id="What_is_SQL_and_why_is_it_used" style="color:green">What is SQL and why is it used?</h2>
+<h2 id="What_is_SQL_and_why_is_it_used" style="color:green; text-align:center;">What is SQL and why is it used?</h2>
 
 **🗄️ What is SQL?**
 SQL stands for **Structured Query Language**.
@@ -207,9 +228,9 @@ If you want, I can continue **all SQL topics with icons** step-by-step 👍
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="D_between_SQL_MySQL_PostgreSQL_and_SQLite" style="color:green">What are the differences between SQL, MySQL, PostgreSQL, and SQLite?</h2>
+<h2 id="D_between_SQL_MySQL_PostgreSQL_and_SQLite" style="color:green; text-align:center;">What are the differences between SQL, MySQL, PostgreSQL, and SQLite?</h2>
 
 
 ### 🧠 SQL vs Databases (Easy Way)
@@ -274,9 +295,9 @@ If you want, I can continue **all SQL topics with icons** step-by-step 👍
 * 🐬 **MySQL / 🐘 PostgreSQL / 📦 SQLite** → Different **people** who understand SQL
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="primary_foreign_Unique_Key" style="color:green">What is a primary key ,foreign key and Unique Key</h2>
+<h2 id="primary_foreign_Unique_Key" style="color:green; text-align:center;">What is a primary key ,foreign key and Unique Key</h2>
 
 ### 🔑 **Primary Key**
 
@@ -347,9 +368,9 @@ email VARCHAR(255) UNIQUE
 * ⭐ **Unique Key** → Special identity (like email)
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_a_NULL_value" style="color:green">What is a NULL value?</h2>
+<h2 id="What_is_a_NULL_value" style="color:green; text-align:center;">What is a NULL value?</h2>
 
 
 ### ❓ **What is a NULL value?**
@@ -418,9 +439,9 @@ WHERE phone IS NOT NULL
 * Important for **conditions & calculations**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="DB_DELETE_TRUNCATE_and_DROP" style="color:green">What is the difference between DELETE, TRUNCATE, and DROP?</h2>
+<h2 id="DB_DELETE_TRUNCATE_and_DROP" style="color:green; text-align:center;">What is the difference between DELETE, TRUNCATE, and DROP?</h2>
 
 
 ### 🗑️ **DELETE**
@@ -496,9 +517,9 @@ DROP TABLE users;
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_)is_)a_)Schema" style="color:green">What is a Schema?</h2>
+<h2 id="What_)is_)a_)Schema" style="color:green; text-align:center;">What is a Schema?</h2>
 
 ### 🗂️ **What is a Schema?**
 
@@ -562,9 +583,9 @@ sales.orders
   *A schema is a logical container that organizes database objects like tables and views within a database.*
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_are_Data_Types_in_SQL" style="color:green">🧾 What are Data Types in SQL?</h2>
+<h2 id="What_are_Data_Types_in_SQL" style="color:green; text-align:center;">🧾 What are Data Types in SQL?</h2>
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/d78661b5-d972-4e18-9cba-ca580f2950d6" />
 
@@ -652,12 +673,12 @@ sales.orders
 * 🧩 Special
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 
 <h1 style="text-align:center;" >Data Definition Language (DDL)</h1>
 
-<h2 id="What_is_DDL" style="color:green">  🏗️ What is DDL? </h2>
+<h2 id="What_is_DDL" style="color:green; text-align:center;">  🏗️ What is DDL? </h2>
 
 * **DDL** stands for **Data Definition Language**
 * Used to **define, create, modify, and delete database structure**
@@ -800,9 +821,9 @@ DROP INDEX idx_name;
   *DDL is a set of SQL commands used to define and manage the structure of database objects.*
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_are_Constraints" style="color:green">  ⛓️ What are Constraints? </h2>
+<h2 id="What_are_Constraints" style="color:green; text-align:center;">  ⛓️ What are Constraints? </h2>
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/162df1cf-960d-45cb-a78a-177bcc0e6703" />
 
@@ -1168,9 +1189,9 @@ id INT PRIMARY KEY NOT NULL AUTO_INCREMENT
 > *A column is defined using its name, data type, constraints to control data, and extras like default or auto increment.*
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_NOT_NULL_Constraint" style="color:green">  🚫 What is NOT NULL Constraint? </h2>
+<h2 id="What_is_NOT_NULL_Constraint" style="color:green; text-align:center;">  🚫 What is NOT NULL Constraint? </h2>
 
 
 * **NOT NULL** ensures that a column **must have a value**
@@ -1216,9 +1237,9 @@ name VARCHAR(50) NOT NULL
 🚫 **NOT NULL = No Empty Allowed**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_UNIQUE_Constraint" style="color:green">  ⭐ What is UNIQUE Constraint? </h2>
+<h2 id="What_is_UNIQUE_Constraint" style="color:green; text-align:center;">  ⭐ What is UNIQUE Constraint? </h2>
 
 * **UNIQUE** ensures that **no duplicate values** exist in a column
 * Each value must be **different**
@@ -1266,9 +1287,9 @@ email VARCHAR(100) UNIQUE
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_CHECK_Constraint" style="color:green">  ✔️ What is CHECK Constraint? </h2>
+<h2 id="What_is_CHECK_Constraint" style="color:green; text-align:center;">  ✔️ What is CHECK Constraint? </h2>
 
 
 * **CHECK** puts a **condition (rule)** on a column
@@ -1307,9 +1328,9 @@ age INT CHECK (age >= 18)
 ✔️ **CHECK = Condition must be TRUE**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_DEFAULT_Constraint" style="color:green">  ⚙️ What is DEFAULT Constraint? </h2>
+<h2 id="What_is_DEFAULT_Constraint" style="color:green; text-align:center;">  ⚙️ What is DEFAULT Constraint? </h2>
 
 
 * **DEFAULT** sets a **predefined value** for a column
@@ -1347,13 +1368,13 @@ status VARCHAR(20) DEFAULT 'active'
 ⚙️ **DEFAULT = Auto value if missing**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 <h1 style="text-align:center;" >Data Manipulation Language (DML)</h1>
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/f17a7aa4-937b-40cc-8e88-80e9d36fecf9" />
 
-<h2 id="What_is_DML" style="color:green">  ✍️ What is DML? </h2>
+<h2 id="What_is_DML" style="color:green; text-align:center;">  ✍️ What is DML? </h2>
 
 * **DML** stands for **Data Manipulation Language**
 * Used to **work with data inside tables**
@@ -1449,9 +1470,9 @@ DELETE FROM users WHERE email = 'amit@gmail.com';
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="INSERT_and_INSERT_IGNORE" style="color:green">  What is the difference between INSERT and INSERT IGNORE? </h2>
+<h2 id="INSERT_and_INSERT_IGNORE" style="color:green; text-align:center;">  What is the difference between INSERT and INSERT IGNORE? </h2>
 
 ## ➕ **INSERT**
 
@@ -1519,9 +1540,9 @@ VALUES ('john@gmail.com');
 * 🚫 **IGNORE** → Skip errors
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_UPSERT" style="color:green">  🔁 What is UPSERT? </h2>
+<h2 id="What_is_UPSERT" style="color:green; text-align:center;">  🔁 What is UPSERT? </h2>
 
 <img alt="Image" src="https://github.com/user-attachments/assets/7fdf7bb7-d6a5-45ef-9091-1444cd508efe" />
 
@@ -1589,9 +1610,9 @@ DO UPDATE SET name = EXCLUDED.name;
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_LIMIT" style="color:green">  📏  What is LIMIT and ↪️ OFFSET? </h2>
+<h2 id="What_is_LIMIT" style="color:green; text-align:center;">  📏  What is LIMIT and ↪️ OFFSET? </h2>
 
 ### 📏 **What is LIMIT**
 
@@ -1657,9 +1678,9 @@ LIMIT 5 OFFSET 5;
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_ORDER_BY" style="color:green">  🔃 What is ORDER BY? </h2>
+<h2 id="What_is_ORDER_BY" style="color:green; text-align:center;">  🔃 What is ORDER BY? </h2>
 
 * **ORDER BY** is used to **sort data**
 * Sorts rows in **ascending or descending order**
@@ -1718,9 +1739,9 @@ ORDER BY age DESC, name ASC;
 
 🔃 **ORDER BY = Arrange data**
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_DISTINCT" style="color:green">  🧹 What is DISTINCT </h2>
+<h2 id="What_is_DISTINCT" style="color:green; text-align:center;">  🧹 What is DISTINCT </h2>
 
 * **DISTINCT** removes **duplicate values**
 * Returns **unique records only**
@@ -1770,9 +1791,9 @@ SELECT DISTINCT city, country FROM users;
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_Alias" style="color:green">  🏷️ What is Alias (AS)? </h2>
+<h2 id="What_is_Alias" style="color:green; text-align:center;">  🏷️ What is Alias (AS)? </h2>
 
 * **Alias** is a **temporary name**
 * Used for **columns or tables**
@@ -1834,13 +1855,13 @@ SELECT name full_name FROM users;
 🏷️ **Alias = Nickname**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 <h1 style="text-align:center;" > Aggregate Functions </h1>
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/9704bed3-427b-4708-b4ac-e2d543dfc5f2" />
 
-<h2 id="What_are_Aggregate_Functions" style="color:green">📊 What are Aggregate Functions? </h2>
+<h2 id="What_are_Aggregate_Functions" style="color:green; text-align:center;">📊 What are Aggregate Functions? </h2>
 
 * Aggregate functions **perform calculations on multiple rows**
 * They return **one single value**
@@ -1918,9 +1939,9 @@ SELECT MIN(marks) FROM students;
 📊 **Aggregate = Group calculation**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_GROUP_BY" style="color:green"> 🧩 What is GROUP BY? </h2>
+<h2 id="What_is_GROUP_BY" style="color:green; text-align:center;"> 🧩 What is GROUP BY? </h2>
 
 
 * **GROUP BY** groups rows that have **same values**
@@ -1968,9 +1989,9 @@ GROUP BY department;
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_HAVING" style="color:green"> 🔍 What is HAVING? </h2>
+<h2 id="What_is_HAVING" style="color:green; text-align:center;"> 🔍 What is HAVING? </h2>
 
 * **HAVING** filters **grouped data**
 * Used **after GROUP BY**
@@ -2019,9 +2040,9 @@ HAVING COUNT(*) > 5;
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="WHERE_vs_HAVING" style="color:green"> 🔍 WHERE vs HAVING </h2>
+<h2 id="WHERE_vs_HAVING" style="color:green; text-align:center;"> 🔍 WHERE vs HAVING </h2>
 
 
 ### 📌 **WHERE**
@@ -2079,14 +2100,14 @@ HAVING COUNT(*) > 5;
 * 🔍 **WHERE** → Before grouping
 * 🔍 **HAVING** → After grouping
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 
 <h1 style="text-align:center;" >Joins</h1>
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/aa154d67-6fc1-472e-a9d1-18d28c243bef" />
 
-<h2 id="What_is_a_JOIN" style="color:green"> 🔗 What is a JOIN? </h2>
+<h2 id="What_is_a_JOIN" style="color:green; text-align:center;"> 🔗 What is a JOIN? </h2>
 
 
 * A **JOIN** combines data from **two or more tables**
@@ -2127,9 +2148,9 @@ JOIN orders ON users.id = orders.user_id;
 🔗 **JOIN = Connect tables**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_INNER_JOIN" style="color:green"> 🔗 What is INNER JOIN (JOIN)? </h2>
+<h2 id="What_is_INNER_JOIN" style="color:green; text-align:center;"> 🔗 What is INNER JOIN (JOIN)? </h2>
 
 
 * **INNER JOIN** returns **only matching records**
@@ -2176,9 +2197,9 @@ JOIN orders ON users.id = orders.user_id;
 🔗 **INNER = Common data only**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_LEFT_JOIN" style="color:green">⬅️ What is LEFT JOIN? </h2>
+<h2 id="What_is_LEFT_JOIN" style="color:green; text-align:center;">⬅️ What is LEFT JOIN? </h2>
 
 * **LEFT JOIN** returns **all records from the left table**
 * Also returns **matching records from the right table**
@@ -2217,9 +2238,9 @@ LEFT JOIN orders ON users.id = orders.user_id;
 ⬅️ **LEFT JOIN = Everything from left**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_RIGHT_JOIN" style="color:green"> ➡️ What is RIGHT JOIN? </h2>
+<h2 id="What_is_RIGHT_JOIN" style="color:green; text-align:center;"> ➡️ What is RIGHT JOIN? </h2>
 
 
 * **RIGHT JOIN** returns **all records from the right table**
@@ -2259,9 +2280,9 @@ RIGHT JOIN orders ON users.id = orders.user_id;
 ➡️ **RIGHT JOIN = Everything from right**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_FULL_OUTER_JOIN" style="color:green"> 🔄 What is FULL OUTER JOIN? </h2>
+<h2 id="What_is_FULL_OUTER_JOIN" style="color:green; text-align:center;"> 🔄 What is FULL OUTER JOIN? </h2>
 
 * **FULL OUTER JOIN** returns **all records from both tables**
 * Includes **matching and non-matching rows**
@@ -2311,10 +2332,10 @@ FULL OUTER JOIN orders ON users.id = orders.user_id;
 🔄 **FULL = Everything from both sides**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 
-<h2 id="What_is_CROSS_JOIN" style="color:green"> ❌➡️ What is CROSS JOIN? </h2>
+<h2 id="What_is_CROSS_JOIN" style="color:green; text-align:center;"> ❌➡️ What is CROSS JOIN? </h2>
 
 
 * **CROSS JOIN** returns the **Cartesian product**
@@ -2386,9 +2407,9 @@ CROSS JOIN colors;
 ✖️ **Multiply rows**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_SELF_JOIN" style="color:green"> 🔁 What is SELF JOIN? </h2>
+<h2 id="What_is_SELF_JOIN" style="color:green; text-align:center;"> 🔁 What is SELF JOIN? </h2>
 
 
 * **SELF JOIN** is a join where a table is joined **with itself**
@@ -2455,9 +2476,9 @@ ON e.manager_id = m.id;
 🔁 **SELF JOIN = Same table twice**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="Difference_between_JOIN_and_SUBQUERY" style="color:green"> Difference between JOIN and SUBQUERY? </h2>
+<h2 id="Difference_between_JOIN_and_SUBQUERY" style="color:green; text-align:center;"> Difference between JOIN and SUBQUERY? </h2>
 
 
 ## 🔗 **JOIN**
@@ -2529,14 +2550,14 @@ WHERE id IN (
 * 🔍 **SUBQUERY** = Query inside query
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 
 <h1 style="text-align:center;" >Subqueries</h1>
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/0c8bcbcf-595f-4c83-b1c5-3757a08581b2" />
 
-<h2 id="What_is_a_Subquery" style="color:green">🔍 What is a Subquery? </h2>
+<h2 id="What_is_a_Subquery" style="color:green; text-align:center;">🔍 What is a Subquery? </h2>
 
 * A **subquery** is a **query inside another SQL query**
 * The **inner query runs first**
@@ -2584,9 +2605,9 @@ WHERE id IN (
 🔍 **Subquery = Inside query**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="Types_of_Subqueries_in_SQL" style="color:green"> 🔍 Types of Subqueries in SQL </h2>
+<h2 id="Types_of_Subqueries_in_SQL" style="color:green; text-align:center;"> 🔍 Types of Subqueries in SQL </h2>
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/cc42e0c2-2c8d-4848-a636-e546b6e66509" />
 
@@ -2738,16 +2759,16 @@ WHERE id IN (
 
 > *Subqueries can be single-row, multi-row, multi-column, correlated, scalar, or nested.*
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 <h1 style="text-align:center;" >Set Operations</h1>
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/b3449810-8246-4b06-970d-88b6bebf8b53" />
 
-<h2 id="What_is_UNION" style="color:green"> 🔗 What is UNION? </h2>
+<h2 id="What_is_UNION" style="color:green; text-align:center;"> 🔗 What is UNION? </h2>
 
 * **UNION** is used to **combine results of two or more SELECT queries**
 * Removes **duplicate rows** by default
@@ -2815,9 +2836,9 @@ SELECT name FROM students_2025;
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_UNION_ALL" style="color:green"> 🔗 What is UNION ALL? </h2>
+<h2 id="What_is_UNION_ALL" style="color:green; text-align:center;"> 🔗 What is UNION ALL? </h2>
 
 * **UNION ALL** combines results of multiple `SELECT` queries
 * **Does NOT remove duplicates**
@@ -2882,9 +2903,9 @@ SELECT name FROM students_2025;
 ➕➕ **ALL = Everything stays**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_INTERSECT" style="color:green"> What is INTERSECT? </h2>
+<h2 id="What_is_INTERSECT" style="color:green; text-align:center;"> What is INTERSECT? </h2>
 
 
 * **INTERSECT** returns **only common rows** between two `SELECT` queries
@@ -2955,9 +2976,9 @@ SELECT name FROM students_2025;
 * Not supported in **MySQL** (use `INNER JOIN` instead)
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_EXCEPT_MINUS" style="color:green"> 🔗 What is EXCEPT / MINUS? </h2>
+<h2 id="What_is_EXCEPT_MINUS" style="color:green; text-align:center;"> 🔗 What is EXCEPT / MINUS? </h2>
 
 * **EXCEPT** (or **MINUS** in Oracle) returns rows that are:
 
@@ -3027,15 +3048,15 @@ SELECT name FROM students_2025;
 ➖ **EXCEPT = Remove second from first**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 <h1 style="text-align:center;" >Indexes</h1>
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/f3e71566-2133-4c0b-bf0b-87def719e4ec" />
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_an_Index" style="color:green"> 📌 What is an Index? </h2>
+<h2 id="What_is_an_Index" style="color:green; text-align:center;"> 📌 What is an Index? </h2>
 
 * An **index** is a database object that **speeds up data searching**
 * Works like a **book index**
@@ -3099,9 +3120,9 @@ CREATE INDEX idx_email ON users(email);
 
 ⚡ **Index = Speed**
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="Types_of_Indexes_in_SQL" style="color:green"> Types of Indexes in SQL </h2>
+<h2 id="Types_of_Indexes_in_SQL" style="color:green; text-align:center;"> Types of Indexes in SQL </h2>
 
 
 
@@ -3205,16 +3226,16 @@ CREATE FULLTEXT INDEX idx_desc ON products(description);
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 <h1 style="text-align:center;" >Transactions</h1>
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
 
 <img  alt="Image" src="https://github.com/user-attachments/assets/20c0da0f-f603-425a-812b-10189aa791d0" />
 
-<h2 id="What_is_a_Transaction" style="color:green"> 🔄 What is a Transaction? </h2>
+<h2 id="What_is_a_Transaction" style="color:green; text-align:center;"> 🔄 What is a Transaction? </h2>
 
 * A **transaction** is a **group of SQL operations** executed as **one unit**
 * Either **all succeed** or **all fail**
@@ -3272,9 +3293,9 @@ ROLLBACK;
 🔄 **Transaction = All or nothing**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_COMMIT" style="color:green"> ✅ What is COMMIT? </h2>
+<h2 id="What_is_COMMIT" style="color:green; text-align:center;"> ✅ What is COMMIT? </h2>
 
 
 * **COMMIT** permanently **saves all changes** made in a transaction
@@ -3331,9 +3352,9 @@ ROLLBACK;
 
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_ROLLBACK" style="color:green"> ❌ What is ROLLBACK? </h2>
+<h2 id="What_is_ROLLBACK" style="color:green; text-align:center;"> ❌ What is ROLLBACK? </h2>
 
 * **ROLLBACK** cancels all changes made in a transaction
 * Database returns to the **previous state**
@@ -3379,9 +3400,9 @@ ROLLBACK;
 ↩️ **ROLLBACK = Go back**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_is_SAVEPOINT" style="color:green">📍📍📍 What is SAVEPOINT? </h2>
+<h2 id="What_is_SAVEPOINT" style="color:green; text-align:center;">📍📍📍 What is SAVEPOINT? </h2>
 
 <img alt="Image" src="https://github.com/user-attachments/assets/2e14ed5f-25a9-4063-928f-d4f471667376" />
 
@@ -3432,9 +3453,9 @@ COMMIT;
 📍 **SAVEPOINT = Mark a point**
 
 
-<span style="color:green;">================================================================ </span>
+<hr style="border: 2px solid green;">
 
-<h2 id="What_are_ACID_Properties" style="color:green"> 🧪 What are ACID Properties? </h2>
+<h2 id="What_are_ACID_Properties" style="color:green; text-align:center;"> 🧪 What are ACID Properties? </h2>
 
 ![Image](https://github.com/user-attachments/assets/7ebe97cb-cd6e-445f-ac94-5606d79a3e8a)
 
