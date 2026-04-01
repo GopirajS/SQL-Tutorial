@@ -1,62 +1,151 @@
+# 🧩 1. Basics of SQL
 
+* What is SQL? Difference between SQL and MySQL?
+* Types of SQL commands (DDL, DML, DCL, TCL)
+* What is a table, row, column?
+* What are constraints? Types of constraints?
+* Difference between `WHERE` and `HAVING`
+* What is `DISTINCT`?
+* What is `ORDER BY`?
+* What is `GROUP BY`?
 
-## Stored Procedures & Functions
+---
 
-<!-- * What is a stored procedure? -->
-<!-- * Stored procedure vs function? -->
-<!-- * How to create a stored procedure? -->
-<!-- * What are parameters? -->
-<!-- * What is control flow in SQL (IF, CASE, LOOP)? -->
+# 🔍 2. SELECT Queries & Filtering
 
-## Locks & Concurrency
+* Write a query to fetch specific columns
+* Difference between `WHERE` and `HAVING`
+* Find duplicate records
+* Find second highest salary
+* Use of `LIKE`, `IN`, `BETWEEN`
+* What is `LIMIT` / `TOP`?
 
-<!-- * What is database locking? -->
-<!-- * What is row-level locking? -->
-<!-- * What is table-level locking? -->
-<!-- * What is a deadlock? -->
-<!-- * How to prevent deadlocks? -->
+---
 
-## Normalization & Design
+# 🔗 3. Joins
 
-<!-- * What is database normalization? -->
-<!-- * What is 1NF? -->
-<!-- * What is 2NF? -->
-<!-- * What is 3NF? -->
-<!-- * What is denormalization? -->
-<!-- * When should denormalization be used? -->
+* Types of joins (INNER, LEFT, RIGHT, FULL)
+* Difference between INNER JOIN and LEFT JOIN
+* Self join example
+* Cross join use case
 
-## Performance & Optimization
+---
 
-* How do you optimize SQL queries?
-<!-- * What is query execution plan? -->
-<!-- * What is EXPLAIN? -->
-<!-- * How to find slow queries? -->
-* Index vs Query optimization?
+# 📊 4. Aggregations & Grouping
 
-## Security
+* Use of `COUNT`, `SUM`, `AVG`, `MAX`, `MIN`
+* Difference between `GROUP BY` and `ORDER BY`
+* Filtering grouped data using `HAVING`
+* Find department-wise highest salary
 
-* What is SQL Injection?
-* How to prevent SQL Injection?
-* What is prepared statement?
-* What are database user roles?
-* What are GRANT and REVOKE?
+---
 
-## Advanced SQL
+# 🧠 5. Subqueries
+
+* What is a subquery?
+* Types: correlated vs non-correlated
+* Subquery in SELECT, WHERE, FROM
+* Difference between subquery and join
+* Exists vs IN
+
+---
+
+# ⚡ 6. Window Functions (Important Advanced Topic)
 
 * What are window functions?
-<!-- * What is ROW_NUMBER()? -->
-<!-- * What is RANK() and DENSE_RANK()? -->
-<!-- * What is PARTITION BY? -->
-<!-- * What is CTE (WITH clause)? -->
-<!-- * Recursive CTE – what and why? -->
+* Difference between `ROW_NUMBER`, `RANK`, `DENSE_RANK`
+* Use of `PARTITION BY`
+* Running totals
+* Find top N records per group
 
-## Practical & Scenario-Based
+---
 
-* Write a query to find duplicate records
-* Write a query to get the second highest salary
+# 🏗️ 7. Indexes
+
+* What is an index?
+* Types of indexes
+* Clustered vs non-clustered index
+* When NOT to use index
+* Impact of index on performance
+
+---
+
+# 🔒 8. Constraints & Keys
+
+* Primary key vs Unique key
+* Foreign key
+* Composite key
+* NOT NULL, CHECK, DEFAULT
+* What is normalization?
+
+---
+
+# 🧱 9. Normalization & Database Design
+
+* What are normal forms (1NF, 2NF, 3NF)?
+* Denormalization
+* Functional dependency
+* Real-world database design questions
+
+---
+
+# 🔄 10. Transactions & ACID Properties
+
+* What is a transaction?
+* ACID properties
+* COMMIT, ROLLBACK, SAVEPOINT
+* Dirty read, phantom read, non-repeatable read
+* Isolation levels
+
+---
+
+# ⚙️ 11. Stored Procedures & Functions
+
+* What is a stored procedure?
+* Procedure vs function
+* Advantages of stored procedures
+* Input/output parameters
+
+---
+
+# 🧾 12. Views
+
+* What is a view?
+* Types: simple vs complex view
+* Updatable views
+* Materialized views
+
+---
+
+# 🚀 13. Performance Optimization
+
+* Query optimization techniques
+* Explain plan / execution plan
+* Index usage optimization
+* Avoiding full table scans
+* Joins vs subqueries performance
+
+---
+
+# 🔥 14. Real-World SQL Problems (Must Practice)
+
+* Find nth highest salary
 * Find employees without managers
-* Get top N records per group
-* Delete duplicate rows safely
-* Paginate results using SQL
-* Design a database for an e-commerce system
+* Find duplicate records
+* Delete duplicate rows
+* Find consecutive records
+* Pivot table queries
+* Gaps and islands problems
+* Find unmatched records between two tables
+  
+
+---
+
+# 🧪 15. Advanced Topics
+
+* CTE (Common Table Expression)
+* Recursive queries
+* JSON handling in SQL
+* Partitioning
+* Sharding basics
 
