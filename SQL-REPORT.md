@@ -24,20 +24,13 @@ document.querySelector('#backToTop').addEventListener('click', function(e) {
 ## Basics
 
 * [What is SQL and why is it used?](#What_is_SQL_and_why_is_it_used)
-
 * [What are the differences between SQL, MySQL, PostgreSQL, and SQLite?](#D_between_SQL_MySQL_PostgreSQL_and_SQLite)
-
 * What is a database?
 * What is a table, row, and column?
-
 * [What is a primary key ,foreign key and Unique Key?](#primary_foreign_Unique_Key)
-
 * [What are NULL values?](#What_is_a_NULL_value)
-
 * [What is the difference between DELETE, TRUNCATE, and DROP?](#DB_DELETE_TRUNCATE_and_DROP)
-
 * [What is a schema?](#What_is_a_Schema)
-
 * [What are data types in SQL?](#What_are_Data_Types_in_SQL)
 
 ---
@@ -45,32 +38,21 @@ document.querySelector('#backToTop').addEventListener('click', function(e) {
 ## Data Definition Language (DDL)
 
 * [What is DDL?](#What_is_DDL)
-
 * [What are constraints?](#What_are_Constraints)
-
 * [What is NOT NULL constraint?](#What_is_NOT_NULL_Constraint)
-
 * [What is UNIQUE constraint?](#What_is_UNIQUE_Constraint)
-
 * [What is CHECK constraint?](#What_is_CHECK_Constraint)
-
 * [What is DEFAULT constraint?](#What_is_DEFAULT_Constraint)
 
 
 ## Data Manipulation Language (DML)
 
 * [What is DML?](#What_is_DML)
-
 * [What is the difference between INSERT and INSERT IGNORE?](#INSERT_and_INSERT_IGNORE)
-
 * [What is UPSERT?](#What_is_UPSERT)
-
 * [What is LIMIT and OFFSET?](#What_is_LIMIT)
-
 * [What is ORDER BY?](#What_is_ORDER_BY)
-
 * [What is DISTINCT?](#What_is_DISTINCT)
-
 * [What is alias (AS)?](#What_is_Alias)
 
 
@@ -89,45 +71,28 @@ document.querySelector('#backToTop').addEventListener('click', function(e) {
 ## Aggregate Functions
 
 * [What are aggregate functions?](#What_are_Aggregate_Functions)
-
-* What is COUNT()?
-* What is SUM()?
-* What is AVG()?
-* What is MIN() and MAX()?
-
+* Use of COUNT, SUM, AVG, MAX, MIN
 * [What is GROUP BY?](#What_is_GROUP_BY)
-
 * [What is HAVING?](#What_is_HAVING)
-
 * [Difference between WHERE and HAVING?](#WHERE_vs_HAVING)
 
 
 ## Joins
 
 * [What is a JOIN?](#What_is_a_JOIN)
-
 * [What is INNER JOIN(JOIN)?](#What_is_INNER_JOIN)
-
 * [What is LEFT JOIN?](#What_is_LEFT_JOIN)
-
 * [What is RIGHT JOIN?](#What_is_RIGHT_JOIN)
-
 * [What is FULL OUTER JOIN?](#What_is_FULL_OUTER_JOIN)
-
 * [What is CROSS JOIN?](#What_is_CROSS_JOIN)
-
 * [What is SELF JOIN?](#What_is_SELF_JOIN)
-
 * [Difference between JOIN and SUBQUERY?](#Difference_between_JOIN_and_SUBQUERY)
-
 * How do joins impact performance?
 
 ## Subqueries
 
 * [What is a subquery?](#What_is_a_Subquery)
-
 * [Types of Subqueries in SQL?](#Types_of_Subqueries_in_SQL) 
-
 * Subquery vs JOIN – when to use which?
 * What is EXISTS?
 * What is NOT EXISTS?
@@ -136,14 +101,9 @@ document.querySelector('#backToTop').addEventListener('click', function(e) {
 ## Set Operations
 
 * [What is UNION?](#What_is_UNION)
-
 * [What is UNION ALL?](#What_is_UNION_ALL)
-
 * [What is INTERSECT?](#What_is_INTERSECT)
-
 * [What is EXCEPT / MINUS](#What_is_EXCEPT_MINUS)
-
-
 
 ## String Functions
 
@@ -167,9 +127,7 @@ document.querySelector('#backToTop').addEventListener('click', function(e) {
 ## Indexes
 
 * [What is an index?](#What_is_an_Index)
-
 * [Types of indexes?](#Types_of_Indexes_in_SQL)
-
 * Why are indexes used?
 * What is a composite index?
 * When should you avoid indexes?
@@ -183,19 +141,76 @@ document.querySelector('#backToTop').addEventListener('click', function(e) {
 * How to create a view?
 * Can views be updated?
 
-
-
 ## Transactions
 
 * [What is a transaction?](#What_is_a_Transaction)
-
 * [What is COMMIT?](#What_is_COMMIT)
-
 * [What is ROLLBACK?](#What_is_ROLLBACK)
-
 * [What is SAVEPOINT?](#What_is_SAVEPOINT)
-
 * [What are ACID properties?](#What_are_ACID_Properties)
+
+
+## Stored Procedures & Functions
+
+* What is a stored procedure?
+* Stored procedure vs function?
+* How to create a stored procedure?
+* What are parameters?
+* What is control flow in SQL (IF, CASE, LOOP)?
+
+## Locks & Concurrency
+
+* What is database locking?
+* What is row-level locking?
+* What is table-level locking?
+* What is a deadlock?
+* How to prevent deadlocks?
+
+## Normalization & Design
+
+* What is database normalization?
+* What is 1NF?
+* What is 2NF?
+* What is 3NF?
+* What is denormalization?
+* When should denormalization be used?
+
+## Performance & Optimization
+
+* How do you optimize SQL queries?
+* What is query execution plan?
+* What is EXPLAIN?
+* How to find slow queries?
+* Index vs Query optimization?
+
+## Security
+
+* What is SQL Injection?
+* How to prevent SQL Injection?
+* What is prepared statement?
+* What are database user roles?
+* What are GRANT and REVOKE?
+
+## Advanced SQL
+
+* What are window functions?
+* What is ROW_NUMBER()?
+* What is RANK() and DENSE_RANK()?
+* What is PARTITION BY?
+* What is CTE (WITH clause)?
+* Recursive CTE – what and why?
+
+## Practical & Scenario-Based
+
+* Write a query to find duplicate records
+* Write a query to get the second highest salary
+* Find employees without managers
+* Get top N records per group
+* Delete duplicate rows safely
+* Paginate results using SQL
+* Design a database for an e-commerce system
+
+
 
 
 <hr style="border: 2px solid green;">
