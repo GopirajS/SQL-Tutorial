@@ -1,14 +1,4 @@
-<a href="#top" id="backToTop" style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #007bff;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 14px;
-">⬆ Top</a>
+<a href="#top" id="backToTop" style="position: fixed; bottom: 20px; right: 20px; background: #007bff; color: white; padding: 8px 12px; border-radius: 6px; text-decoration: none; font-size: 14px;">⬆ Top</a>
 
 <script>
 document.querySelector('#backToTop').addEventListener('click', function(e) {
@@ -534,7 +524,7 @@ DROP TABLE users;
 
 <hr style="border: 2px solid green;">
 
-<h2 id="What_)is_)a_)Schema" style="color:green; text-align:center;">What is a Schema?</h2>
+<h2 id="What_is_a_Schema" style="color:green; text-align:center;">What is a Schema?</h2>
 
 ### 🗂️ **What is a Schema?**
 
@@ -602,7 +592,7 @@ sales.orders
 
 <h2 id="What_are_Data_Types_in_SQL" style="color:green; text-align:center;">🧾 What are Data Types in SQL?</h2>
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/d78661b5-d972-4e18-9cba-ca580f2950d6" />
+<img alt="Image" src="https://github.com/user-attachments/assets/d78661b5-d972-4e18-9cba-ca580f2950d6" />
 
 
 * Data types define **what kind of data** a column can store
@@ -703,9 +693,9 @@ sales.orders
 
 ### 🧰 Common DDL Commands
 
-* 🧱 `CREATE` → Create table/database
+* 🧱 `CREATE` → Create view/table/database
 * ✏️ `ALTER` → Modify table structure
-* 🗑️ `DROP` → Delete table/database
+* 🗑️ `DROP` → Delete view/table/database
 * 🚿 `TRUNCATE` → Remove all rows from a table
 
 ---
@@ -840,7 +830,7 @@ DROP INDEX idx_name;
 
 <h2 id="What_are_Constraints" style="color:green; text-align:center;">  ⛓️ What are Constraints? </h2>
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/162df1cf-960d-45cb-a78a-177bcc0e6703" />
+<img alt="Image" src="https://github.com/user-attachments/assets/162df1cf-960d-45cb-a78a-177bcc0e6703" />
 
 * Constraints are **rules applied to table columns**
 * They **control what data is allowed**
@@ -1015,7 +1005,7 @@ Expanded:
 ```sql
 column_name DATA_TYPE 
 [PRIMARY KEY] [NOT NULL] [UNIQUE] [AUTO_INCREMENT] 
-[DEFAULT value]
+[DEFAULT VALUE]
 ```
 
 ---
@@ -1039,6 +1029,7 @@ column_name DATA_TYPE
 id
 email
 created_at
+
 ```
 
 🧠 Memory: **What do I call this data?**
@@ -1387,7 +1378,7 @@ status VARCHAR(20) DEFAULT 'active'
 
 <h1 style="text-align:center;" >Data Manipulation Language (DML)</h1>
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/f17a7aa4-937b-40cc-8e88-80e9d36fecf9" />
+<img alt="Image" src="https://github.com/user-attachments/assets/f17a7aa4-937b-40cc-8e88-80e9d36fecf9" />
 
 <h2 id="What_is_DML" style="color:green; text-align:center;">  ✍️ What is DML? </h2>
 
@@ -1874,7 +1865,7 @@ SELECT name full_name FROM users;
 
 <h1 style="text-align:center;" > Aggregate Functions </h1>
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/9704bed3-427b-4708-b4ac-e2d543dfc5f2" />
+<img alt="Image" src="https://github.com/user-attachments/assets/9704bed3-427b-4708-b4ac-e2d543dfc5f2" />
 
 <h2 id="What_are_Aggregate_Functions" style="color:green; text-align:center;">📊 What are Aggregate Functions? </h2>
 
@@ -2120,7 +2111,7 @@ HAVING COUNT(*) > 5;
 
 <h1 style="text-align:center;" >Joins</h1>
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/aa154d67-6fc1-472e-a9d1-18d28c243bef" />
+<img alt="Image" src="https://github.com/user-attachments/assets/aa154d67-6fc1-472e-a9d1-18d28c243bef" />
 
 <h2 id="What_is_a_JOIN" style="color:green; text-align:center;"> 🔗 What is a JOIN? </h2>
 
@@ -2570,7 +2561,7 @@ WHERE id IN (
 
 <h1 style="text-align:center;" >Subqueries</h1>
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/0c8bcbcf-595f-4c83-b1c5-3757a08581b2" />
+<img alt="Image" src="https://github.com/user-attachments/assets/0c8bcbcf-595f-4c83-b1c5-3757a08581b2" />
 
 <h2 id="What_is_a_Subquery" style="color:green; text-align:center;">🔍 What is a Subquery? </h2>
 
@@ -2624,7 +2615,7 @@ WHERE id IN (
 
 <h2 id="Types_of_Subqueries_in_SQL" style="color:green; text-align:center;"> 🔍 Types of Subqueries in SQL </h2>
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/cc42e0c2-2c8d-4848-a636-e546b6e66509" />
+<img alt="Image" src="https://github.com/user-attachments/assets/cc42e0c2-2c8d-4848-a636-e546b6e66509" />
 
 ## 1️⃣ **Single-Row Subquery**
 
@@ -2781,7 +2772,7 @@ WHERE id IN (
 <hr style="border: 2px solid green;">
 
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/b3449810-8246-4b06-970d-88b6bebf8b53" />
+<img alt="Image" src="https://github.com/user-attachments/assets/b3449810-8246-4b06-970d-88b6bebf8b53" />
 
 <h2 id="What_is_UNION" style="color:green; text-align:center;"> 🔗 What is UNION? </h2>
 
@@ -2803,11 +2794,11 @@ WHERE id IN (
 
 ### 📋 Simple Example
 
-| **students_2024** |   | **students_2025** |
-| ----------------- | - | ----------------- |
-| name              |   | name              |
-| Rahul             |   | Amit              |
-| Amit              |   | Neha              |
+| **students_2024** | **students_2025** |
+| ----------------- | ----------------- |
+| name              | name              |
+| Rahul             | Amit              |
+| Amit              | Neha              |
 
 ---
 
@@ -2871,10 +2862,10 @@ SELECT name FROM students_2025;
 
 ### Table: `students_2024` and `students_2025`
 
-| name  | | name |
-| ----- |-| ---- |
-| Rahul | | Amit |
-| Amit  | | Neha |
+| name  | name |
+| ----- | ---- |
+| Rahul | Amit |
+| Amit  | Neha |
 
 
 ### UNION ALL Query
@@ -2943,11 +2934,11 @@ SELECT name FROM students_2025;
 
 ### Table: `students_2024` and `students_2025`
 
-| name (students_2024) | | name (students_2025) |
-| ----- |-| ----- |
-| Rahul | | Amit  |
-| Amit  | | Neha  |
-| Neha  | | Priya |
+| name (students_2024) | name (students_2025) |
+| ----- | ----- |
+| Rahul | Amit  |
+| Amit  | Neha  |
+| Neha  | Priya |
 
 ---
 
@@ -3009,13 +3000,13 @@ SELECT name FROM students_2025;
 
 ---
 
-### Table: `students_2024` and  `students_2025`
+### Table: `students_2024` and `students_2025`
 
-| name (students_2024) | | name (students_2025) |
-| ----- |-| ----- |
-| Rahul | | Amit  |
-| Amit  | | Neha  |
-| Neha  | | Priya |
+| name (students_2024) | name (students_2025) |
+| ----- | ----- |
+| Rahul | Amit  |
+| Amit  | Neha  |
+| Neha  | Priya |
 
 
 ### EXCEPT Query
@@ -3067,7 +3058,7 @@ SELECT name FROM students_2025;
 
 <h1 style="text-align:center;" >Indexes</h1>
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/f3e71566-2133-4c0b-bf0b-87def719e4ec" />
+<img alt="Image" src="https://github.com/user-attachments/assets/f3e71566-2133-4c0b-bf0b-87def719e4ec" />
 
 <hr style="border: 2px solid green;">
 
@@ -3248,7 +3239,7 @@ CREATE FULLTEXT INDEX idx_desc ON products(description);
 <hr style="border: 2px solid green;">
 
 
-<img  alt="Image" src="https://github.com/user-attachments/assets/20c0da0f-f603-425a-812b-10189aa791d0" />
+<img alt="Image" src="https://github.com/user-attachments/assets/20c0da0f-f603-425a-812b-10189aa791d0" />
 
 <h2 id="What_is_a_Transaction" style="color:green; text-align:center;"> 🔄 What is a Transaction? </h2>
 
